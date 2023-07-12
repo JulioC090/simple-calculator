@@ -1,0 +1,341 @@
+:root {
+  --dark: #2d2a37;
+  --gray: #6b6b6b;
+  --white: #ebebeb;
+  --purple-1: #462878;
+  --purple-2: #7f45e2;
+  --purple-3: #975dfa;
+}
+
+*,
+html,
+body,
+i,
+input {
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+  color: var(--white);
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100%;
+}
+
+.calculator {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr auto 2fr;
+  gap: 16px;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--dark);
+  padding: 64px 32px 32px 32px;
+}
+
+.calculator__display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  gap: 48px;
+  padding-left: 18px;
+  padding-right: 22px;
+}
+
+.calculator__expression {
+  height: 4.8em;
+  overflow: auto;
+  text-align: right;
+  font-weight: 400;
+  font-size: 36px;
+  padding: 4px;
+  scrollbar-gutter: stable;
+}
+
+.calculator__expression::-webkit-scrollbar {
+  width: 4px;
+}
+
+.calculator__expression::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.calculator__expression::-webkit-scrollbar-thumb {
+  background-color: var(--gray);
+  border-radius: 4rem;
+}
+
+.calculator__expression--more-10-digits {
+  font-size: 30px;
+}
+
+.calculator__result-view {
+  color: var(--gray);
+  font-weight: 400;
+  font-size: 20px;
+  padding: 8px;
+}
+
+.calculator__tools {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding: 0 20px 8px 20px;
+  border-bottom: rgba(0, 0, 0, 0.1) 1px solid;
+}
+
+.calculator__tools button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.calculator__tools button:active {
+  filter: brightness(0.5);
+  transform: scale(0.95);
+  transition: 100ms;
+}
+
+.calculator__keyboard {
+  --grid-element-size: 60px;
+  --grid-gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, var(--grid-element-size));
+  grid-template-rows: repeat(5, var(--grid-element-size));
+  justify-content: center;
+  gap: var(--grid-gap);
+  height: fit-content;
+}
+
+.calculator__keyboard__functions {
+  display: grid;
+  grid-template-columns: repeat(3, var(--grid-element-size));
+  grid-template-rows: repeat(1, var(--grid-element-size));
+  gap: var(--grid-gap);
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.calculator__keyboard__numbers {
+  display: grid;
+  grid-template-columns: repeat(3, var(--grid-element-size));
+  grid-template-rows: repeat(3, var(--grid-element-size));
+  gap: var(--grid-gap);
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.calculator__keyboard__others {
+  display: grid;
+  grid-template-columns: repeat(3, var(--grid-element-size));
+  grid-template-rows: repeat(1, var(--grid-element-size));
+  gap: var(--grid-gap);
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 5;
+  grid-row-end: 5;
+}
+
+.calculator__keyboard__operations {
+  display: grid;
+  grid-template-columns: var(--grid-element-size);
+  grid-template-rows: repeat(5, var(--grid-element-size));
+  gap: var(--grid-gap);
+  grid-column-start: 4;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 5;
+}
+
+.calculator__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark);
+  border: none;
+  outline: none;
+  padding: 16px;
+  box-shadow: 0px 11px 7px rgba(0, 0, 0, 0.01), 0px 7px 7px rgba(0, 0, 0, 0.04),
+    0px 4px 6px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.26),
+    0px 0px 2px rgba(0, 0, 0, 0.29), inset 0px 2px 3px rgba(255, 255, 255, 0.06);
+  border-radius: 100%;
+  aspect-ratio: 1;
+  font-size: 24px;
+}
+
+.calculator__button.calculator__backspace {
+  background-color: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.calculator__button:active {
+  filter: brightness(2);
+  transform: scale(0.95);
+  transition: 100ms;
+}
+
+.calculator__button img {
+  aspect-ratio: 1;
+  height: 24px;
+}
+
+.calculator__button--clear {
+  color: var(--purple-3);
+}
+
+.calculator__keyboard__operations .calculator__button {
+  background-color: var(--purple-1);
+}
+
+.calculator__keyboard__operations .calculator__button--equal {
+  background-color: var(--purple-2);
+}
+
+@media screen and (max-height: 740px) {
+  .calculator {
+    padding: 32px;
+    grid-template-rows: 1fr auto 3fr;
+  }
+
+  .calculator__display {
+    gap: 12px;
+  }
+
+  .calculator__expression {
+    height: 3.6em;
+  }
+
+  .calculator__tools {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-height: 680px) {
+  .calculator__expression {
+    height: 2.4em;
+  }
+}
+
+@media screen and (min-width: 512px) and (min-height: 512px) {
+  .container {
+    background: linear-gradient(180deg, #807ece 0%, #8e7ece 100%);
+    padding: 32px 0;
+  }
+
+  .calculator {
+    width: 412px;
+    height: fit-content;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      0px 188px 52px rgba(0, 0, 0, 0.01), 0px 120px 48px rgba(0, 0, 0, 0.04),
+      0px 68px 41px rgba(0, 0, 0, 0.15), 0px 30px 30px rgba(0, 0, 0, 0.26),
+      0px 8px 17px rgba(0, 0, 0, 0.29),
+      inset 0px 6px 8px rgba(255, 255, 255, 0.1),
+      inset 0px -4px 5px rgba(0, 0, 0, 0.22);
+    border-radius: 48px;
+  }
+
+  .calculator__display {
+    gap: 8px;
+  }
+
+  .calculator__tools button:hover {
+    filter: brightness(0.75);
+    transition: 100ms;
+  }
+
+  .calculator__button:hover {
+    filter: brightness(1.5);
+    transition: 100ms;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-height: 512px) {
+  .calculator {
+    height: 100%;
+    width: 100%;
+    padding: 32px;
+  }
+
+  .calculator__display {
+    gap: 8px;
+  }
+
+  .calculator__expression {
+    font-size: 28px;
+    height: 1.2em;
+  }
+
+  .calculator__tools {
+    margin-top: 0;
+  }
+
+  .calculator__keyboard {
+    --grid-element-size: 48px;
+    --grid-gap: 16px;
+
+    display: grid;
+    grid-template-columns: repeat(4, var(--grid-element-size)) 1fr repeat(
+        3,
+        var(--grid-element-size)
+      );
+    grid-template-rows: repeat(3, var(--grid-element-size));
+  }
+
+  .calculator__button {
+    font-size: 20px;
+    padding: 8px;
+  }
+
+  .calculator__button img {
+    aspect-ratio: 1;
+    height: 20px;
+  }
+
+  .calculator__keyboard__functions {
+    grid-template-columns: repeat(1, var(--grid-element-size));
+    grid-template-rows: repeat(3, var(--grid-element-size));
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+
+  .calculator__keyboard__numbers {
+    grid-template-columns: repeat(3, var(--grid-element-size));
+    grid-template-rows: repeat(3, var(--grid-element-size));
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+
+  .calculator__keyboard__others {
+    grid-template-columns: repeat(1, var(--grid-element-size));
+    grid-template-rows: repeat(3, var(--grid-element-size));
+    grid-column-start: 6;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+
+  .calculator__keyboard__operations {
+    grid-template-columns: repeat(2, var(--grid-element-size));
+    grid-template-rows: repeat(3, var(--grid-element-size));
+    grid-column-start: 7;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+}

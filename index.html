@@ -1,1 +1,81 @@
-<!doctype html><html lang="pt-br"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Simple Calculator</title><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap" rel="stylesheet"/></head><body><div class="container"><div class="calculator"><div class="calculator__display"><div class="calculator__expression">44444444444 + 4444444444 + 4444444444 + 4444444444 + 444444444</div><div class="calculator__result-view">2</div></div><div class="calculator__tools"><button class="calculator__history"><img src="./assets/icons/historic.svg" alt="Histórico"/></button> <button class="calculator__backspace"><img src="./assets/icons/backspace.svg" alt="Apagar"/></button></div><div class="calculator__keyboard"><div class="calculator__keyboard__functions"><button class="calculator__button calculator__button--clear">C</button> <button class="calculator__button">( )</button> <button class="calculator__button"><img src="./assets/icons/percent.svg" alt="Porcentagem"/></button></div><div class="calculator__keyboard__numbers"><button class="calculator__button">7</button> <button class="calculator__button">8</button> <button class="calculator__button">9</button> <button class="calculator__button">4</button> <button class="calculator__button">5</button> <button class="calculator__button">6</button> <button class="calculator__button">1</button> <button class="calculator__button">2</button> <button class="calculator__button">3</button></div><div class="calculator__keyboard__others"><button class="calculator__button"><img src="./assets/icons/plusMinus.svg" alt="Mudar o sinal"/></button> <button class="calculator__button">0</button> <button class="calculator__button">,</button></div><div class="calculator__keyboard__operations"><button class="calculator__button"><img src="./assets/icons/divide.svg" alt="Divisão"/></button> <button class="calculator__button"><img src="./assets/icons/multiply.svg" alt="Multiplicação"/></button> <button class="calculator__button"><img src="./assets/icons/subtract.svg" alt="Subtração"/></button> <button class="calculator__button"><img src="./assets/icons/plus.svg" alt="Adição"/></button> <button class="calculator__button calculator__button--equal"><img src="./assets/icons/equals.svg" alt="Calcular"/></button></div></div></div></div><script defer="defer" src="main-bundle.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <div class="calculator__display">
+          <div class="calculator__expression"></div>
+          <div class="calculator__result-view"></div>
+        </div>
+        <div class="calculator__tools">
+          <button class="calculator__history">
+            <img src="./assets/icons/historic.svg" alt="Histórico" />
+          </button>
+          <button class="calculator__button calculator__backspace" data-type="function" data-value="backspace">
+            <img src="./assets/icons/backspace.svg" alt="Apagar" data-type="function" data-value="backspace"/>
+          </button>
+        </div>
+        <div class="calculator__keyboard">
+          <div class="calculator__keyboard__functions">
+            <button class="calculator__button calculator__button--clear" data-type="function" data-value="clear">
+              C
+            </button>
+            <button class="calculator__button" data-type="operation" data-value="bracket">( )</button>
+            <button class="calculator__button" data-type="operation" data-value="percent">
+              <img src="./assets/icons/percent.svg" alt="Porcentagem" />
+            </button>
+          </div>
+          <div class="calculator__keyboard__numbers">
+            <button class="calculator__button" data-type="digit" data-value="7">7</button>
+            <button class="calculator__button" data-type="digit" data-value="8">8</button>
+            <button class="calculator__button" data-type="digit" data-value="9">9</button>
+            <button class="calculator__button" data-type="digit" data-value="4">4</button>
+            <button class="calculator__button" data-type="digit" data-value="5">5</button>
+            <button class="calculator__button" data-type="digit" data-value="6">6</button>
+            <button class="calculator__button" data-type="digit" data-value="1">1</button>
+            <button class="calculator__button" data-type="digit" data-value="2">2</button>
+            <button class="calculator__button" data-type="digit" data-value="3">3</button>
+          </div>
+          <div class="calculator__keyboard__others">
+            <button class="calculator__button">
+              <img src="./assets/icons/plusMinus.svg" alt="Mudar o sinal" />
+            </button>
+            <button class="calculator__button" data-type="digit" data-value="0">0</button>
+            <button class="calculator__button" data-type="digit" data-value=".">,</button>
+          </div>
+          <div class="calculator__keyboard__operations">
+            <button class="calculator__button" data-type="operation" data-value="divide">
+              <img src="./assets/icons/divide.svg" alt="Divisão" />
+            </button>
+            <button class="calculator__button" data-type="operation" data-value="multiply">
+              <img src="./assets/icons/multiply.svg" alt="Multiplicação" />
+            </button>
+            <button class="calculator__button" data-type="operation" data-value="subtract">
+              <img src="./assets/icons/subtract.svg" alt="Subtração" />
+            </button>
+            <button class="calculator__button" data-type="operation" data-value="addition">
+              <img src="./assets/icons/plus.svg" alt="Adição" />
+            </button>
+            <button class="calculator__button calculator__button--equal" data-type="operation" data-value="equal">
+              <img src="./assets/icons/equals.svg" alt="Calcular" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./dist/index.js"></script>
+  </body>
+</html>
