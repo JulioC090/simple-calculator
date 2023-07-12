@@ -14,7 +14,7 @@ i,
 input {
   margin: 0;
   padding: 0;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   color: var(--white);
   box-sizing: border-box;
 }
@@ -172,6 +172,12 @@ input {
   border-radius: 100%;
   aspect-ratio: 1;
   font-size: 24px;
+}
+
+.calculator__button.calculator__backspace {
+  background-color: transparent;
+  padding: 0;
+  box-shadow: none;
 }
 
 .calculator__button:active {
